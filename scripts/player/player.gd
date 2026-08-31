@@ -1,0 +1,129 @@
+extends Node2D
+class_name Player
+
+const GRID_SIZE := Vector2(32, 32)
+const MOVE_DURATION := 0.1
+
+var grid_position := Vector2i.ZERO
+var facing_direction := Vector2.DOWN
+var is_moving := false
+var movement_history: Array[Vector2i] = []
+
+const HISTORY_MAX := 64
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
+func _ready() -> void:
+	add_to_group("player")
+	_snap_to_grid()
+	movement_history.push_front(grid_position)
+
+
+func _physics_process(_delta: float) -> void:
+	if is_moving or EventManager.is_event_active:
+		return
+
+	var input := _get_input()
+	if input != Vector2.ZERO:
+		facing_direction = _snap_to_axis(input)
+		_play_walk_animation()
+		_try_move(facing_direction)
+	elif Input.is_action_just_pressed("interact"):
+		_interact()
+
+
+func _try_move(direction: Vector2) -> void:
+	var target_grid := grid_position + Vector2i(direction)
+
+	if not _is_cell_walkable(target_grid):
+		_play_idle_animation()
+		return
+
+	is_moving = true
+	var target_pos := Vector2(target_grid) * GRID_SIZE
+
+	var tween := create_tween()
+	tween.tween_property(self, "position", target_pos, MOVE_DURATION) \
+		.set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(_on_move_complete.bind(target_grid))
+
+
+func _on_move_complete(new_grid_pos: Vector2i) -> void:
+	grid_position = new_grid_pos
+	movement_history.push_front(grid_position)
+	if movement_history.size() > HISTORY_MAX:
+		movement_history.resize(HISTORY_MAX)
+	is_moving = false
+
+	var input := _get_input()
+	if input != Vector2.ZERO:
+		facing_direction = _snap_to_axis(input)
+		_play_walk_animation()
+		_try_move(facing_direction)
+	else:
+		_play_idle_animation()
+
+
+func _get_input() -> Vector2:
+	var input := Vector2.ZERO
+	input.x = Input.get_axis("move_left", "move_right")
+	input.y = Input.get_axis("move_up", "move_down")
+	return input
+
+
+func _interact() -> void:
+	EventManager.check_interaction(grid_position, facing_direction)
+
+
+func _is_cell_walkable(cell: Vector2i) -> bool:
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = Vector2(cell) * GRID_SIZE + Vector2(GRID_SIZE * 0.5)
+	query.collision_mask = 1
+	var result := space_state.intersect_point(query)
+	return result.is_empty()
+
+
+func _snap_to_grid() -> void:
+	grid_position = Vector2i(
+		roundi(position.x / GRID_SIZE.x),
+		roundi(position.y / GRID_SIZE.y)
+	)
+	position = Vector2(grid_position) * GRID_SIZE
+
+
+func _snap_to_axis(dir: Vector2) -> Vector2:
+	if abs(dir.x) > abs(dir.y):
+		return Vector2(sign(dir.x), 0)
+	elif abs(dir.y) > abs(dir.x):
+		return Vector2(0, sign(dir.y))
+	return facing_direction
+
+
+func _play_walk_animation() -> void:
+	if not sprite or not sprite.sprite_frames:
+		return
+	var anim_name := "walk_%s" % _direction_name(facing_direction)
+	if sprite.sprite_frames.has_animation(anim_name):
+		sprite.play(anim_name)
+
+
+func _play_idle_animation() -> void:
+	if not sprite or not sprite.sprite_frames:
+		return
+	var anim_name := "idle_%s" % _direction_name(facing_direction)
+	if sprite.sprite_frames.has_animation(anim_name):
+		sprite.play(anim_name)
+
+
+func _direction_name(dir: Vector2) -> String:
+	if dir == Vector2.UP:
+		return "up"
+	elif dir == Vector2.DOWN:
+		return "down"
+	elif dir == Vector2.LEFT:
+		return "left"
+	elif dir == Vector2.RIGHT:
+		return "right"
+	return "down"

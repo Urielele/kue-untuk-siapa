@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1iqb84j74rip"]
+
+[ext_resource type="PackedScene" path="res://scenes/maps/sample_map.tscn" id="1_map"]
+
+[node name="Main" type="Node2D" unique_id=1512636625]
+
+[node name="SampleMap" parent="." unique_id=313380164 instance=ExtResource("1_map")]
+
+[node name="HUD" parent="." unique_id=1568631680 instance_placeholder="res://scenes/ui/hud.tscn"]
