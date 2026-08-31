@@ -2,7 +2,7 @@ extends Node2D
 class_name Player
 
 const GRID_SIZE := Vector2(32, 32)
-const MOVE_DURATION := 0.1
+const MOVE_DURATION := 0.2
 
 var grid_position := Vector2i.ZERO
 var facing_direction := Vector2.DOWN
@@ -51,6 +51,7 @@ func _try_move(direction: Vector2) -> void:
 
 func _on_move_complete(new_grid_pos: Vector2i) -> void:
 	grid_position = new_grid_pos
+	position = Vector2(grid_position) * GRID_SIZE
 	movement_history.push_front(grid_position)
 	if movement_history.size() > HISTORY_MAX:
 		movement_history.resize(HISTORY_MAX)

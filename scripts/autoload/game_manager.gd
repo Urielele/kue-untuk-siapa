@@ -39,12 +39,14 @@ func _init_default_party() -> void:
 
 func spawn_followers(parent: Node2D, start_pos: Vector2i) -> void:
 	_clear_followers()
+	var offset := 0
 	for i in range(party.size()):
 		if party[i].get("has_body", false):
 			continue
+		offset += 1
 		var member: PartyMember = _party_scene.instantiate()
-		member.setup(party[i], i)
-		member.teleport_to(start_pos)
+		member.setup(party[i], offset)
+		member.teleport_to(start_pos + Vector2i(0, offset))
 		parent.add_child(member)
 		_followers.append(member)
 

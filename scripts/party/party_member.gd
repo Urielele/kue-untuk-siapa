@@ -2,12 +2,13 @@ extends Node2D
 class_name PartyMember
 
 const GRID_SIZE := Vector2(32, 32)
-const MOVE_DURATION := 0.1
+const MOVE_DURATION := 0.2
 
 var grid_position := Vector2i.ZERO
 var follow_index: int = 0
 var is_moving := false
 var member_data: Dictionary = {}
+var facing_direction := Vector2i.DOWN
 
 var _target_grid := Vector2i.ZERO
 var _has_target := false
@@ -22,29 +23,37 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if is_moving or _has_target:
+	if is_moving or _has_target or EventManager.is_event_active:
+		return
+	_follow_path()
+
+
+func _follow_path() -> void:
+	var history := _get_player_history()
+	var anchor := follow_index
+
+	if history.size() <= anchor:
 		return
 
-	var player: Node2D = _get_player()
-	if not player:
+	var goal := history[anchor]
+	if goal == grid_position:
 		return
 
-	var history: Array[Vector2i] = player.movement_history
-	var needed_index := follow_index + 1
+	var dir := _snap_to_axis(goal - grid_position)
+	if dir == Vector2i.ZERO:
+		return
 
-	if history.size() > needed_index:
-		var target: Vector2i = history[needed_index]
-		if target != grid_position:
-			_target_grid = target
-			_has_target = true
-			_move_to_target()
+	var step := grid_position + dir
+	_target_grid = step
+	_has_target = true
+	_move_to_target()
 
 
 func _move_to_target() -> void:
 	is_moving = true
 	var target_pos := Vector2(_target_grid) * GRID_SIZE
-	var dir := _target_grid - grid_position
-	_play_walk_animation(dir)
+	facing_direction = _target_grid - grid_position
+	_play_walk_animation()
 
 	var tween := create_tween()
 	tween.tween_property(self, "position", target_pos, MOVE_DURATION) \
@@ -54,8 +63,23 @@ func _move_to_target() -> void:
 
 func _on_move_complete() -> void:
 	grid_position = _target_grid
+	position = Vector2(grid_position) * GRID_SIZE
 	_has_target = false
 	is_moving = false
+
+	var history := _get_player_history()
+	var anchor := follow_index
+
+	if history.size() > anchor:
+		var goal := history[anchor]
+		var dir := _snap_to_axis(goal - grid_position)
+		if dir != Vector2i.ZERO and goal != grid_position:
+			var step := grid_position + dir
+			_target_grid = step
+			_has_target = true
+			_move_to_target()
+			return
+
 	_play_idle_animation()
 
 
@@ -72,8 +96,15 @@ func teleport_to(pos: Vector2i) -> void:
 	_play_idle_animation()
 
 
-func _get_player():
-	return get_tree().get_first_node_in_group("player")
+func _get_player_history() -> Array[Vector2i]:
+	var player: Node2D = get_tree().get_first_node_in_group("player")
+	if not player:
+		return []
+	var raw = player.get("movement_history")
+	var history: Array[Vector2i] = []
+	for h in raw:
+		history.append(h)
+	return history
 
 
 func _snap_to_grid() -> void:
@@ -84,10 +115,18 @@ func _snap_to_grid() -> void:
 	position = Vector2(grid_position) * GRID_SIZE
 
 
-func _play_walk_animation(dir: Vector2) -> void:
+func _snap_to_axis(dir: Vector2i) -> Vector2i:
+	if abs(dir.x) > abs(dir.y):
+		return Vector2i(sign(dir.x), 0)
+	elif abs(dir.y) > abs(dir.x):
+		return Vector2i(0, sign(dir.y))
+	return Vector2i.ZERO
+
+
+func _play_walk_animation() -> void:
 	if not sprite or not sprite.sprite_frames:
 		return
-	var anim_name := "walk_%s" % _direction_name(dir)
+	var anim_name := "walk_%s" % _direction_name(facing_direction)
 	if sprite.sprite_frames.has_animation(anim_name):
 		sprite.play(anim_name)
 
@@ -95,18 +134,22 @@ func _play_walk_animation(dir: Vector2) -> void:
 func _play_idle_animation() -> void:
 	if not sprite or not sprite.sprite_frames:
 		return
-	var anim_name := "idle_down"
+	var anim_name := "idle_%s" % _direction_name(facing_direction)
 	if sprite.sprite_frames.has_animation(anim_name):
 		sprite.play(anim_name)
+	else:
+		var fallback := "idle_down"
+		if sprite.sprite_frames.has_animation(fallback):
+			sprite.play(fallback)
 
 
-func _direction_name(dir: Vector2) -> String:
-	if dir == Vector2.UP:
+func _direction_name(dir: Vector2i) -> String:
+	if dir == Vector2i.UP:
 		return "up"
-	elif dir == Vector2.DOWN:
+	elif dir == Vector2i.DOWN:
 		return "down"
-	elif dir == Vector2.LEFT:
+	elif dir == Vector2i.LEFT:
 		return "left"
-	elif dir == Vector2.RIGHT:
+	elif dir == Vector2i.RIGHT:
 		return "right"
 	return "down"
