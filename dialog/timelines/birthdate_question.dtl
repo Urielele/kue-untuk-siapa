@@ -1,0 +1,63 @@
+mysterious_voice: Huhu... padahal aku sudah belajar semalaman!
+mysterious_voice: Tapi tetap saja 3 soal [b]matematika[/b] ini susah sekali.
+mysterious_voice: Kakak bisa tolong bantu aku?
+chia: Tentu saja, sini aku lihat soalnya.
+label Question1 (Question1)
+mysterious_voice: 2D - 4 = 8, berapa nilai D?
+- D = 6
+	bimo: Wow sugoi.
+	chia: Urusai.
+	bimo: Oke maaf.
+- D = 7
+	bimo: Ekhem ekhem, perlu bantuan dari aku tidak \:b
+	- Iya
+		bimo: Jawabannya [b]D = 6[/b].
+	- Tidak
+		bimo: Baiklahh \:(
+	jump Question1
+- D = 8
+	bimo: Ekhem ekhem, perlu bantuan dari aku tidak \:b
+	- Ya
+		bimo: Jawabannya [b]D = 6[/b].
+	- Tidak
+		bimo: baiklahh \:(
+	jump Question1
+label Question2 (Question2)
+mysterious_voice: 3M + 3 = 30 , berapa nilai M?
+- M = 8
+	bimo: Ermmm actually..
+	- Apa Jawabannya
+		bimo: Jawabannya [b]M = 9[/b].
+	- Anak Kecil Diam
+		bimo: .. .. ..
+	jump Question2
+- M = 9
+	bimo: Kak chiak nanti ajarin aku mtk juga ya.
+	chia: Gamau wleee.
+	bimo: Jahatt.
+- M = 10
+	bimo: Ermmm actually..
+	- Apa Jawabannya
+		bimo: Jawabannya [b]M = 9[/b].
+	- Anak Kecil Diam
+		bimo: .. .. ..
+	jump Question2
+label Question3 (Qeustion3)
+mysterious_voice: Y - 5 = 2000, berapa nilai Y?
+- Y = 1005
+	jump Question3
+- Y = 2005
+- Y = 3005
+	jump Question3
+mysterious_voice: Jadi D = [b]6[/b], M = [b]9[/b], Y = [b]2005[/b]
+mysterious_voice: Terima kasih banyak sudah membantuku, Kak!
+mysterious_voice: Nama kakak siapa?
+chia: Sama-sama! Namaku..
+- Dewi Femdom Athena Bishamonten
+	set {player_name} = "Dewi Femdom Athena Bishamonten"
+- Cheakawa
+	set {player_name} = "Cheakawa"
+- Herlavien
+	set {player_name} = "Herlavien"
+mysterious_voice: Terimakasih kak [b]{player_name}[/b]!
+mysterious_voice: Ambil [b]kunci[/b] ini kak!

@@ -22,7 +22,7 @@ func _face_toward_player() -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if not player:
 		return
-	var dir := (player.global_position - global_position).normalized()
+	var dir = (player.global_position - global_position).normalized()
 	if abs(dir.x) > abs(dir.y):
 		facing_direction = Vector2(sign(dir.x), 0)
 	else:

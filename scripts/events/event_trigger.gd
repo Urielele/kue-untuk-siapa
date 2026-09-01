@@ -12,6 +12,7 @@ signal event_activated(trigger: EventTrigger)
 var is_active: bool = true
 var player_inside: bool = false
 var facing_direction := Vector2.DOWN
+var player: Player
 
 
 func _ready() -> void:
@@ -39,6 +40,7 @@ func reactivate() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("player"):
+		print("peler")
 		player_inside = true
 		event_entered.emit(self)
 

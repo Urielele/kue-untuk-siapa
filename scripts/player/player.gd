@@ -8,6 +8,7 @@ var grid_position := Vector2i.ZERO
 var facing_direction := Vector2.DOWN
 var is_moving := false
 var movement_history: Array[Vector2i] = []
+var can_move := true
 
 const HISTORY_MAX := 64
 
@@ -18,11 +19,13 @@ func _ready() -> void:
 	add_to_group("player")
 	_snap_to_grid()
 	movement_history.push_front(grid_position)
+	
 
 
 func _physics_process(_delta: float) -> void:
 	if is_moving or EventManager.is_event_active:
 		return
+
 
 	var input := _get_input()
 	if input != Vector2.ZERO:
