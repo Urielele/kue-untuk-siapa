@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var spawn_position := Vector2i(5, 3)
+@export var spawn_position := Vector2i(12, 0)
 
 
 func _ready() -> void:

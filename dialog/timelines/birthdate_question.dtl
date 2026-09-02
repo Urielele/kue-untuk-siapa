@@ -45,9 +45,11 @@ mysterious_voice: 3M + 3 = 30 , berapa nilai M?
 label Question3 (Qeustion3)
 mysterious_voice: Y - 5 = 2000, berapa nilai Y?
 - Y = 1005
+	bimo: aku bisa bantu loh \:>
 	jump Question3
 - Y = 2005
 - Y = 3005
+	bimo: aku bisa bantu loh \:>
 	jump Question3
 mysterious_voice: Jadi D = [b]6[/b], M = [b]9[/b], Y = [b]2005[/b]
 mysterious_voice: Terima kasih banyak sudah membantuku, Kak!
