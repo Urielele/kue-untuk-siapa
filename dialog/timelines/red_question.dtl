@@ -1,6 +1,6 @@
 mysterious_voice: Dunia ini luas dan penuh warna…
 mysterious_voice: Tapi ada satu warna spesifik yang sedang kucari.
-mysterious_voice: Warna yang punya kesan [b]berani[/b], [b]kuat[/b], [b]penuh energi[/b], sekaligus melambangkan [b]cinta[/b].
+mysterious_voice: Warna yang punya kesan [i]berani[/i], [i]kuat[/i], [i]penuh energi[/i], sekaligus melambangkan [i]cinta[/i].
 label Question (Question)
 chia: Mungkin warna yang kamu cari adalah..
 - Kuning
@@ -10,7 +10,7 @@ chia: Mungkin warna yang kamu cari adalah..
 	bimo: Hmmm	 kayaknya itu kurang tepat deh kak.
 	jump Question
 - Merah
-	mysterious_voice: Terima kasih banyak, Tuan Putri. Sebagai imbalannya, terimalah [b]kunci[/b] ini.
+	mysterious_voice: Terima kasih banyak, Tuan Putri. Sebagai imbalannya, terimalah [i]kunci[/i] ini.
 - Putih
 	bimo: Hmmm	 kayaknya itu kurang tepat deh kak.
 	jump Question

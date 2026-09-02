@@ -26,12 +26,14 @@ Dialogic="*uid://ds2q0uclmolvu"
 directories/dch_directory={
 "bimo": "res://dialog/characters/bimo.dch",
 "chia": "res://dialog/characters/chia.dch",
-"mysterious_voice": "res://dialog/characters/mysterious_voice.dch"
+"mysterious_voice": "res://dialog/characters/mysterious_voice.dch",
+"narator": "res://dialog/characters/narator.dch"
 }
 directories/dtl_directory={
 "birthdate_question": "res://dialog/timelines/birthdate_question.dtl",
 "hyacinth_question": "res://dialog/timelines/hyacinth_question.dtl",
 "intj_question": "res://dialog/timelines/intj_question.dtl",
+"prologue": "res://dialog/timelines/prologue.dtl",
 "red_question": "res://dialog/timelines/red_question.dtl"
 }
 layout/style_directory={
@@ -50,11 +52,11 @@ text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
 text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
-animations/join_default_length=0.5
+animations/join_default_length=0.0
 animations/join_default_wait=true
-animations/leave_default_length=0.5
+animations/leave_default_length=0.0
 animations/leave_default_wait=true
-animations/cross_fade_default_length=0.5
+animations/cross_fade_default_length=0.0
 choices/autofocus_first=true
 choices/delay=0.2
 choices/reveal_delay=0
@@ -76,6 +78,8 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+animations/join_default="Fade In Up"
+animations/leave_default="Fade Out Down"
 
 [display]
 
@@ -86,6 +90,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://bm0hfco5u6de8"
 
 [input]
 

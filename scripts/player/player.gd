@@ -83,7 +83,7 @@ func _interact() -> void:
 func _is_cell_walkable(cell: Vector2i) -> bool:
 	var space_state := get_world_2d().direct_space_state
 	var query := PhysicsPointQueryParameters2D.new()
-	query.position = Vector2(cell) * GRID_SIZE + Vector2(GRID_SIZE * 0.5)
+	query.position = Vector2(cell) * GRID_SIZE + GRID_SIZE * 0.5
 	query.collision_mask = 1
 	var result := space_state.intersect_point(query)
 	return result.is_empty()

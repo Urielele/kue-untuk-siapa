@@ -12,4 +12,4 @@ func _setup_map() -> void:
 	if player:
 		player.position = Vector2(spawn_position) * Vector2(32, 32)
 		player.grid_position = spawn_position
-	GameManager.spawn_followers(self, spawn_position)
+	#GameManager.spawn_followers(self, spawn_position)

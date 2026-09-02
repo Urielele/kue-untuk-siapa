@@ -1,6 +1,6 @@
 mysterious_voice: MBTI merupakan tes kepribadian untuk mengenali karakter dan cara berinteraksi seseorang.
 mysterious_voice: Kemarin temanku ikut tes itu.
-mysterious_voice: Hasilnya menunjukkan dia analitis, logis, dan visioner, hingga dijuluki [b]"Si Arsitek"[/b] atau [b]"Si Ahli Strategi"[/b].
+mysterious_voice: Hasilnya menunjukkan dia analitis, logis, dan visioner, hingga dijuluki [i]"Si Arsitek"[/i] atau [i]"Si Ahli Strategi"[/i].
 label Question (Question)
 mysterious_voice: Kira-kira itu tipe MBTI yang mana, ya?
 - INTP
@@ -10,7 +10,7 @@ mysterious_voice: Kira-kira itu tipe MBTI yang mana, ya?
 	bimo: Keren abis,  tapi bukan tipe MBTI yang lagi dicari.
 	jump Question
 - INTJ
-	mysterious_voice: Itu yang kucari! Terima kasih, ini [b]kunci[/b] untukmu.
+	mysterious_voice: Itu yang kucari! Terima kasih, ini [i]kunci[/i] untukmu.
 - INFP
 	bimo: ITU TIPE MBTI AKUUUU, tapi bukan tipe MBTI yang lagi dicari.
 	jump Question

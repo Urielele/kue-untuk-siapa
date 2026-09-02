@@ -1,5 +1,5 @@
 mysterious_voice: Huhu... padahal aku sudah belajar semalaman!
-mysterious_voice: Tapi tetap saja 3 soal [b]matematika[/b] ini susah sekali.
+mysterious_voice: Tapi tetap saja 3 soal [i]matematika[/i] ini susah sekali.
 mysterious_voice: Kakak bisa tolong bantu aku?
 chia: Tentu saja, sini aku lihat soalnya.
 label Question1 (Question1)
@@ -11,14 +11,14 @@ mysterious_voice: 2D - 4 = 8, berapa nilai D?
 - D = 7
 	bimo: Ekhem ekhem, perlu bantuan dari aku tidak \:b
 	- Iya
-		bimo: Jawabannya [b]D = 6[/b].
+		bimo: Gitu aja gabisa, jawabannya [i]D = 6[/i].
 	- Tidak
 		bimo: Baiklahh \:(
 	jump Question1
 - D = 8
 	bimo: Ekhem ekhem, perlu bantuan dari aku tidak \:b
 	- Ya
-		bimo: Jawabannya [b]D = 6[/b].
+		bimo: Gitu aja gabisa, jawabannya [i]D = 6[/i].
 	- Tidak
 		bimo: baiklahh \:(
 	jump Question1
@@ -27,7 +27,7 @@ mysterious_voice: 3M + 3 = 30 , berapa nilai M?
 - M = 8
 	bimo: Ermmm actually..
 	- Apa Jawabannya
-		bimo: Jawabannya [b]M = 9[/b].
+		bimo: Nih jawabannya [i]M = 9[/i].
 	- Anak Kecil Diam
 		bimo: .. .. ..
 	jump Question2
@@ -38,20 +38,30 @@ mysterious_voice: 3M + 3 = 30 , berapa nilai M?
 - M = 10
 	bimo: Ermmm actually..
 	- Apa Jawabannya
-		bimo: Jawabannya [b]M = 9[/b].
+		bimo: Nih jawabannya [i]M = 9[/i].
 	- Anak Kecil Diam
 		bimo: .. .. ..
 	jump Question2
 label Question3 (Qeustion3)
 mysterious_voice: Y - 5 = 2000, berapa nilai Y?
 - Y = 1005
-	bimo: aku bisa bantu loh \:>
+	bimo: Aku bisa bantu loh \:>
+	- Y
+		bimo: Hehe jawabannya [i]Y = 2005[/i] kakkk.
+	- G
+		bimo: Sedih \:'
 	jump Question3
 - Y = 2005
+	chia: Bisa kan aku
+	bimo: Heh okedeh
 - Y = 3005
-	bimo: aku bisa bantu loh \:>
+	bimo: Aku bisa bantu loh \:>
+	- Y
+		bimo: Hehe jawabannya [i]Y = 2005[/i] kakkk.
+	- G
+		bimo: Sedih \:'
 	jump Question3
-mysterious_voice: Jadi D = [b]6[/b], M = [b]9[/b], Y = [b]2005[/b]
+mysterious_voice: Jadi D = [i]6[/i], M = [i]9[/i], Y = [i]2005[/i]
 mysterious_voice: Terima kasih banyak sudah membantuku, Kak!
 mysterious_voice: Nama kakak siapa?
 chia: Sama-sama! Namaku..
@@ -61,5 +71,5 @@ chia: Sama-sama! Namaku..
 	set {player_name} = "Cheakawa"
 - Herlavien
 	set {player_name} = "Herlavien"
-mysterious_voice: Terimakasih kak [b]{player_name}[/b]!
-mysterious_voice: Ambil [b]kunci[/b] ini kak!
+mysterious_voice: Terimakasih kak [i]{player_name}[/i]!
+mysterious_voice: Ambil [i]kunci[/i] ini kak!
