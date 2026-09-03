@@ -1,9 +1,6 @@
 extends Node2D
 
 
-
-
-
 func _on_mystery_door_entrance_event_entered(trigger: EventTrigger) -> void:
 	print("pindah map")
 	pass # Replace with function body.

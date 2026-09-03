@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bqw7kgvlcge0d"]
+
+[ext_resource type="Texture2D" uid="uid://b6n856jg1ftt6" path="res://assets/sprites/popup/exclamation.png" id="1_lhfoa"]
+[ext_resource type="Texture2D" uid="uid://jdsvlsqgeki7" path="res://assets/sprites/popup/quest.png" id="2_8t4ib"]
+[ext_resource type="Texture2D" uid="uid://bv31eu5bf588k" path="res://assets/sprites/popup/question.png" id="3_t1ecs"]
+[ext_resource type="Texture2D" uid="uid://c656qho0643k3" path="res://assets/sprites/npcs/suara misterius.png" id="5_8t4ib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("1_lhfoa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("2_8t4ib")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cv16"]
+atlas = ExtResource("3_t1ecs")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqn1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}],
+"loop": 1,
+"name": &"exclamation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}],
+"loop": 1,
+"name": &"quest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cv16")
+}],
+"loop": 0,
+"name": &"question",
+"speed": 10.0
+}]
+
+[node name="NPC" type="Node2D" unique_id=890290133]
+
+[node name="PopUp" type="AnimatedSprite2D" parent="." unique_id=618266171]
+position = Vector2(-16, -6)
+sprite_frames = SubResource("SpriteFrames_nqn1h")
+animation = &"quest"
+offset = Vector2(0, -13)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1035963365]
+position = Vector2(-16, 18)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_8t4ib")
