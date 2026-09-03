@@ -13,13 +13,13 @@ var can_move := true
 const HISTORY_MAX := 64
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var pop_up: AnimatedSprite2D = $PopUp
 
 func _ready() -> void:
 	add_to_group("player")
 	_snap_to_grid()
 	movement_history.push_front(grid_position)
-	
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -131,3 +131,29 @@ func _direction_name(dir: Vector2) -> String:
 	elif dir == Vector2.RIGHT:
 		return "right"
 	return "down"
+
+
+func play_popup_notifications(animation: String) -> void:
+	pop_up.visible = true
+	pop_up.play(animation)
+	pop_up.scale = Vector2.ZERO
+
+	await get_tree().process_frame
+
+	#In animation
+	var tween = create_tween()
+	tween.tween_property(pop_up, "scale", Vector2.ONE, 0.5)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
+
+	await get_tree().create_timer(1.5).timeout
+
+	#Out animation
+	var tween2 = create_tween()
+	tween2.tween_property(pop_up, "scale", Vector2.ZERO, 0.3)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_IN)
+
+	await tween2.finished
+
+	pop_up.visible = false

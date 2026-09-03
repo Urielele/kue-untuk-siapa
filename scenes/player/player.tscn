@@ -2,6 +2,48 @@
 
 [ext_resource type="Script" uid="uid://dtxcdmkcd7uvr" path="res://scripts/player/player.gd" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://cmvmbd3m65qr5" path="res://assets/sprites/player/chia playable.png" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://b6n856jg1ftt6" path="res://assets/sprites/popup/exclamation.png" id="2_p47bc"]
+[ext_resource type="Texture2D" uid="uid://jdsvlsqgeki7" path="res://assets/sprites/popup/quest.png" id="3_75vfm"]
+[ext_resource type="Texture2D" uid="uid://bv31eu5bf588k" path="res://assets/sprites/popup/question.png" id="4_0owmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("2_p47bc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("3_75vfm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cv16"]
+atlas = ExtResource("4_0owmy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}],
+"loop": 1,
+"name": &"exclamation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}],
+"loop": 1,
+"name": &"quest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cv16")
+}],
+"loop": 0,
+"name": &"question",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
 atlas = ExtResource("2_dovo2")
@@ -164,10 +206,17 @@ size = Vector2(30, 30)
 [node name="Player" type="Node2D" unique_id=1946823833]
 script = ExtResource("1_player")
 
+[node name="PopUp" type="AnimatedSprite2D" parent="." unique_id=1983551266]
+visible = false
+position = Vector2(-16, -3)
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"exclamation"
+offset = Vector2(0, -13)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=479785261]
 position = Vector2(-16, 16)
 sprite_frames = SubResource("SpriteFrames_player")
-animation = &"walk_left"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=1239643528]
