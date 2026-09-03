@@ -49,6 +49,14 @@ func unregister_trigger(trigger: EventTrigger) -> void:
 	_active_events.erase(trigger)
 
 
+func lock_event() -> void:
+	_set_event_active(true)
+
+
+func unlock_event() -> void:
+	_set_event_active(false)
+
+
 func _set_event_active(active: bool) -> void:
 	is_event_active = active
 	event_active_changed.emit(is_event_active)

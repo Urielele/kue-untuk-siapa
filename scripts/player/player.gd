@@ -40,7 +40,7 @@ func _try_move(direction: Vector2) -> void:
 	var target_grid := grid_position + Vector2i(direction)
 
 	if not _is_cell_walkable(target_grid):
-		_play_idle_animation()
+		play_idle_animation()
 		return
 
 	is_moving = true
@@ -66,7 +66,7 @@ func _on_move_complete(new_grid_pos: Vector2i) -> void:
 		_play_walk_animation()
 		_try_move(facing_direction)
 	else:
-		_play_idle_animation()
+		play_idle_animation()
 
 
 func _get_input() -> Vector2:
@@ -113,7 +113,7 @@ func _play_walk_animation() -> void:
 		sprite.play(anim_name)
 
 
-func _play_idle_animation() -> void:
+func play_idle_animation() -> void:
 	if not sprite or not sprite.sprite_frames:
 		return
 	var anim_name := "idle_%s" % _direction_name(facing_direction)
