@@ -14,3 +14,5 @@ mysterious_voice: Kira-kira itu tipe MBTI yang mana, ya?
 - INFP
 	bimo: ITU TIPE MBTI AKUUUU, tapi bukan tipe MBTI yang lagi dicari.
 	jump Question
+do GameManager.get_key()
+chia: Sekarang aku punya {GameManager.keys_collected} kunci.

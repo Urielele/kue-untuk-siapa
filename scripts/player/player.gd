@@ -19,6 +19,7 @@ func _ready() -> void:
 	add_to_group("player")
 	_snap_to_grid()
 	movement_history.push_front(grid_position)
+	_update_depth()
 
 
 
@@ -59,6 +60,7 @@ func _on_move_complete(new_grid_pos: Vector2i) -> void:
 	if movement_history.size() > HISTORY_MAX:
 		movement_history.resize(HISTORY_MAX)
 	is_moving = false
+	_update_depth()
 
 	if EventManager.is_event_active:
 		play_idle_animation()
@@ -135,6 +137,10 @@ func _direction_name(dir: Vector2) -> String:
 	elif dir == Vector2.RIGHT:
 		return "right"
 	return "down"
+
+
+func _update_depth() -> void:
+	z_index = int(global_position.y/32)
 
 
 func play_popup_notifications(animation: String) -> void:

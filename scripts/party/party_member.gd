@@ -20,6 +20,11 @@ func _ready() -> void:
 	add_to_group("party_members")
 	_snap_to_grid()
 	_target_grid = grid_position
+	_update_depth()
+
+
+func _update_depth() -> void:
+	z_index = int(global_position.y/32)
 
 
 func _physics_process(_delta: float) -> void:
@@ -67,6 +72,7 @@ func _on_move_complete() -> void:
 	position = Vector2(grid_position) * GRID_SIZE
 	_has_target = false
 	is_moving = false
+	_update_depth()
 
 	var history := _get_player_history()
 	var anchor := follow_index
@@ -94,6 +100,7 @@ func teleport_to(pos: Vector2i) -> void:
 	grid_position = pos
 	_target_grid = pos
 	position = Vector2(pos) * GRID_SIZE
+	_update_depth()
 	_play_idle_animation()
 
 

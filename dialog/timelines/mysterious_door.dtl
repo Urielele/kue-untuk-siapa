@@ -1,0 +1,2 @@
+chia: Baru kekumpul {GameManager.keys_collected} kunci.
+chia: Ayo kita cari sisa {GameManager.keys_collected - 4} kuncinya!!

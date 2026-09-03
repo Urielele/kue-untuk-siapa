@@ -10,6 +10,8 @@ var current_map: String = ""
 var _followers: Array[PartyMember] = []
 var _party_scene: PackedScene = preload("res://scenes/party/party_member.tscn")
 
+var keys_collected: int = 0
+var is_first_door: bool = true
 
 func _ready() -> void:
 	_init_default_party()
@@ -101,3 +103,10 @@ func _clear_followers() -> void:
 		if is_instance_valid(f):
 			f.queue_free()
 	_followers.clear()
+
+
+func get_key() -> void:
+	keys_collected += 1
+
+func check_key() -> bool:
+	return keys_collected >= 4

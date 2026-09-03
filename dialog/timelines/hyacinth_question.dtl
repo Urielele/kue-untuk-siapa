@@ -14,3 +14,5 @@ mysterious_voice: Bunga ini kemudian diberi nama...
 	jump Question
 - Hyacinth
 	mysterious_voice: Jawabanmu sangat memuaskan. Aku berikan [i]kunci[/i] ini sebagai hadiah.
+do GameManager.get_key()
+chia: Sekarang aku punya {GameManager.keys_collected} kunci.

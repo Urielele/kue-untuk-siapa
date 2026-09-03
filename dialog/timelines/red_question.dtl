@@ -14,3 +14,5 @@ chia: Mungkin warna yang kamu cari adalah..
 - Putih
 	bimo: Hmmm	 kayaknya itu kurang tepat deh kak.
 	jump Question
+do GameManager.get_key()
+chia: Sekarang aku punya {GameManager.keys_collected} kunci.

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqw7kgvlcge0d"]
 
+[ext_resource type="Script" uid="uid://clmjwciitsca2" path="res://scripts/party/npc_quest.gd" id="1_8t4ib"]
 [ext_resource type="Texture2D" uid="uid://b6n856jg1ftt6" path="res://assets/sprites/popup/exclamation.png" id="1_lhfoa"]
 [ext_resource type="Texture2D" uid="uid://jdsvlsqgeki7" path="res://assets/sprites/popup/quest.png" id="2_8t4ib"]
 [ext_resource type="Texture2D" uid="uid://bv31eu5bf588k" path="res://assets/sprites/popup/question.png" id="3_t1ecs"]
@@ -45,6 +46,7 @@ animations = [{
 }]
 
 [node name="NPC" type="Node2D" unique_id=890290133]
+script = ExtResource("1_8t4ib")
 
 [node name="PopUp" type="AnimatedSprite2D" parent="." unique_id=618266171]
 position = Vector2(-16, -6)
@@ -56,3 +58,9 @@ offset = Vector2(0, -13)
 position = Vector2(-16, 18)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_8t4ib")
+
+[node name="Timer" type="Timer" parent="." unique_id=1626333852]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

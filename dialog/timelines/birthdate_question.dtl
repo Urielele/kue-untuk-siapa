@@ -73,3 +73,5 @@ chia: Sama-sama! Namaku..
 	set {player_name} = "Herlavien"
 mysterious_voice: Terimakasih kak [i]{player_name}[/i]!
 mysterious_voice: Ambil [i]kunci[/i] ini kak!
+do GameManager.get_key()
+chia: Sekarang aku punya {GameManager.keys_collected} kunci.
