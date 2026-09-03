@@ -18,6 +18,7 @@ var player: Player
 func _ready() -> void:
 	if event_id == "":
 		event_id = name
+	add_to_group("event_triggers")
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 

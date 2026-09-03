@@ -9,9 +9,14 @@ var _active_events: Array[EventTrigger] = []
 
 
 func start_dialog(dialog_id: String) -> void:
+	if dialog_id == "":
+		return
 	_set_event_active(true)
 	dialog_started.emit()
 	print("[EventManager] Dialog started: ", dialog_id)
+	Dialogic.start(dialog_id)
+	await Dialogic.timeline_ended
+	end_dialog()
 
 
 func end_dialog() -> void:

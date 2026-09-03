@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://detywqan5saci"]
 
-[ext_resource type="Script" uid="uid://diaqtstxoiwss" path="res://scripts/maps/map_base.gd" id="1_sd7p6"]
+[ext_resource type="Script" uid="uid://ca2rlipen76jf" path="res://scripts/maps/mystery_door_map.gd" id="1_yrrju"]
 [ext_resource type="PackedScene" uid="uid://cghvuqucyyiaa" path="res://scenes/player/player.tscn" id="2_88n8b"]
 [ext_resource type="Texture2D" uid="uid://b7km2wuybvfw6" path="res://assets/tilesets/1_Terrains_and_Fences_32x32.png" id="3_36wk2"]
 [ext_resource type="Texture2D" uid="uid://bhhpdkgcrhu6u" path="res://assets/tilesets/7_Villas_32x32.png" id="4_yrrju"]
@@ -7621,8 +7621,11 @@ sources/1 = SubResource("TileSetAtlasSource_p45jq")
 sources/2 = SubResource("TileSetAtlasSource_mqng7")
 sources/3 = SubResource("TileSetAtlasSource_36wk2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 32)
+
 [node name="VillageMap" type="Node2D" unique_id=1679094130]
-script = ExtResource("1_sd7p6")
+script = ExtResource("1_yrrju")
 
 [node name="Player" parent="." unique_id=1713298777 instance=ExtResource("2_88n8b")]
 top_level = true
@@ -7657,7 +7660,7 @@ tile_set = SubResource("TileSet_bhunq")
 
 [node name="DecorationsTop4" type="TileMapLayer" parent="GroundTiles" unique_id=1650316763]
 z_index = 20
-tile_map_data = PackedByteArray("AAD6/wEAAgAKAGwAAAD7/wAAAgALAGsAAAD7/wEAAgALAGwAAAD2/wEAAgAKAGwAAAD3/wAAAgALAGsAAAD3/wEAAgALAGwAAAD4/wAAAgAIAGsAAAD4/wEAAgAIAGwAAAD5/wEAAgAJAGwAAAAaAAEAAgAKAGwAAAAbAAAAAgALAGsAAAAbAAEAAgALAGwAAAAcAAAAAgAIAGsAAAAcAAEAAgAIAGwAAAAdAAEAAgAJAGwAAAAeAAEAAgAKAGwAAAAfAAAAAgALAGsAAAAfAAEAAgALAGwAAAAYAAAAAgAIAGsAAAAYAAEAAgAIAGwAAAAZAAEAAgAJAGwAAAD4////AgAIAGoAAAD5//7/AgAJAGkAAAD5////AgAJAGoAAAD5/wAAAgAJAGsAAAD6//7/AgAKAGkAAAD6////AgAKAGoAAAD6/wAAAgAKAGsAAAD7////AgALAGoAAAD0////AgAIAGoAAAD0/wAAAgAIAGsAAAD0/wEAAgAIAGwAAAD1//7/AgAJAGkAAAD1////AgAJAGoAAAD1/wAAAgAJAGsAAAD1/wEAAgAJAGwAAAD2//7/AgAKAGkAAAD2////AgAKAGoAAAD2/wAAAgAKAGsAAAD3////AgALAGoAAAAYAP//AgAIAGoAAAAZAP7/AgAJAGkAAAAZAP//AgAJAGoAAAAZAAAAAgAJAGsAAAAaAP7/AgAKAGkAAAAaAP//AgAKAGoAAAAaAAAAAgAKAGsAAAAbAP//AgALAGoAAAAcAP//AgAIAGoAAAAdAP7/AgAJAGkAAAAdAP//AgAJAGoAAAAdAAAAAgAJAGsAAAAeAP7/AgAKAGkAAAAeAP//AgAKAGoAAAAeAAAAAgAKAGsAAAAfAP//AgALAGoAAAD///z/AgAAAKgAAAACAPv/AgAAAKgAAAACAPr/AgAAAKgAAAAEAPn/AgAAAKgAAAAEAPj/AgAAAKgAAAAEAPf/AgAAAKgAAAAFAPb/AgAAAKgAAAAGAPX/AgAAAKgAAAAGAPT/AgAAAKgAAAAGAPP/AgAAAKgAAAAEAPv/AgAAAKgAAAAEAAAAAgAAAKgAAAATAPr/AgAAAKgAAAANAO//AwAAABYAAAANAPD/AwAAABcAAAANAPH/AwAAABgAAAANAPL/AwAAABkAAAANAPP/AwAAABoAAAANAPT/AwAAABsAAAANAPX/AwAAABwAAAANAPb/AwAAAB0AAAAOAO//AwABABYAAAAOAPD/AwABABcAAAAOAPH/AwABABgAAAAOAPL/AwABABkAAAAOAPP/AwABABoAAAAOAPT/AwABABsAAAAOAPX/AwABABwAAAAOAPb/AwABAB0AAAAPAO//AwACABYAAAAPAPD/AwACABcAAAAPAPH/AwACABgAAAAPAPL/AwACABkAAAAPAPP/AwACABoAAAAPAPT/AwACABsAAAAPAPX/AwACABwAAAAPAPb/AwACAB0AAAAQAO//AwADABYAAAAQAPD/AwADABcAAAAQAPH/AwADABgAAAAQAPL/AwADABkAAAAQAPP/AwADABoAAAAQAPT/AwADABsAAAAQAPX/AwADABwAAAAQAPb/AwADAB0AAAARAO//AwAEABYAAAARAPD/AwAEABcAAAARAPH/AwAEABgAAAARAPL/AwAEABkAAAARAPP/AwAEABoAAAARAPT/AwAEABsAAAARAPX/AwAEABwAAAARAPb/AwAEAB0AAAA=")
+tile_map_data = PackedByteArray("AAD6/wEAAgAKAGwAAAD7/wAAAgALAGsAAAD7/wEAAgALAGwAAAD2/wEAAgAKAGwAAAD3/wAAAgALAGsAAAD3/wEAAgALAGwAAAD4/wAAAgAIAGsAAAD4/wEAAgAIAGwAAAD5/wEAAgAJAGwAAAAaAAEAAgAKAGwAAAAbAAAAAgALAGsAAAAbAAEAAgALAGwAAAAcAAAAAgAIAGsAAAAcAAEAAgAIAGwAAAAdAAEAAgAJAGwAAAAeAAEAAgAKAGwAAAAfAAAAAgALAGsAAAAfAAEAAgALAGwAAAAYAAAAAgAIAGsAAAAYAAEAAgAIAGwAAAAZAAEAAgAJAGwAAAD4////AgAIAGoAAAD5//7/AgAJAGkAAAD5////AgAJAGoAAAD5/wAAAgAJAGsAAAD6//7/AgAKAGkAAAD6////AgAKAGoAAAD6/wAAAgAKAGsAAAD7////AgALAGoAAAD0////AgAIAGoAAAD0/wAAAgAIAGsAAAD0/wEAAgAIAGwAAAD1//7/AgAJAGkAAAD1////AgAJAGoAAAD1/wAAAgAJAGsAAAD1/wEAAgAJAGwAAAD2//7/AgAKAGkAAAD2////AgAKAGoAAAD2/wAAAgAKAGsAAAD3////AgALAGoAAAAYAP//AgAIAGoAAAAZAP7/AgAJAGkAAAAZAP//AgAJAGoAAAAZAAAAAgAJAGsAAAAaAP7/AgAKAGkAAAAaAP//AgAKAGoAAAAaAAAAAgAKAGsAAAAbAP//AgALAGoAAAAcAP//AgAIAGoAAAAdAP7/AgAJAGkAAAAdAP//AgAJAGoAAAAdAAAAAgAJAGsAAAAeAP7/AgAKAGkAAAAeAP//AgAKAGoAAAAeAAAAAgAKAGsAAAAfAP//AgALAGoAAAD///z/AgAAAKgAAAACAPv/AgAAAKgAAAACAPr/AgAAAKgAAAAEAPn/AgAAAKgAAAAEAPj/AgAAAKgAAAAEAPf/AgAAAKgAAAAFAPb/AgAAAKgAAAAGAPX/AgAAAKgAAAAGAPT/AgAAAKgAAAAGAPP/AgAAAKgAAAAEAPv/AgAAAKgAAAAEAAAAAgAAAKgAAAATAPr/AgAAAKgAAAANAO//AwAAABYAAAANAPD/AwAAABcAAAANAPH/AwAAABgAAAANAPL/AwAAABkAAAANAPP/AwAAABoAAAANAPT/AwAAABsAAAANAPX/AwAAABwAAAANAPb/AwAAAB0AAAAOAO//AwABABYAAAAOAPD/AwABABcAAAAOAPH/AwABABgAAAAOAPL/AwABABkAAAAOAPP/AwABABoAAAAOAPT/AwABABsAAAAOAPX/AwABABwAAAAOAPb/AwABAB0AAAAPAO//AwACABYAAAAPAPD/AwACABcAAAAPAPH/AwACABgAAAAPAPL/AwACABkAAAAPAPP/AwACABoAAAAPAPT/AwACABsAAAAPAPX/AwACABwAAAAPAPb/AwACAB0AAAAQAO//AwADABYAAAAQAPD/AwADABcAAAAQAPH/AwADABgAAAAQAPL/AwADABkAAAAQAPP/AwADABoAAAAQAPT/AwADABsAAAAQAPX/AwADABwAAAAQAPb/AwADAB0AAAARAO//AwAEABYAAAARAPD/AwAEABcAAAARAPH/AwAEABgAAAARAPL/AwAEABkAAAARAPP/AwAEABoAAAARAPT/AwAEABsAAAARAPX/AwAEABwAAAARAPb/AwAEAB0AAAABAPz/AgAAAKgAAAA=")
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="DecorationsTop3" type="TileMapLayer" parent="GroundTiles" unique_id=2031123026]
@@ -7688,8 +7691,20 @@ script = ExtResource("7_yrrju")
 [node name="Hyacinth" parent="NPCs" unique_id=890290133 instance=ExtResource("8_36wk2")]
 position = Vector2(32, -128)
 
-[node name="NPCTrigger" parent="NPCs/Hyacinth" unique_id=1632730544 instance=ExtResource("9_yrrju")]
+[node name="HyacinthTrigger" parent="NPCs/Hyacinth" unique_id=1632730544 instance=ExtResource("9_yrrju")]
 position = Vector2(-16, 16)
 one_shot = true
 
-[connection signal="event_activated" from="NPCs/Hyacinth/NPCTrigger" to="Events" method="_on_npc_trigger_event_activated"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPCs/Hyacinth/HyacinthTrigger" unique_id=1195789352]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NPCs/Hyacinth/HyacinthTrigger" unique_id=1864972152]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NPCs/Hyacinth/HyacinthTrigger" unique_id=486428875]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[connection signal="event_activated" from="NPCs/Hyacinth/HyacinthTrigger" to="Events" method="_on_hyacinth_trigger_event_activated"]
