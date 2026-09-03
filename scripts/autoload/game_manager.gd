@@ -2,6 +2,7 @@ extends Node
 
 signal party_changed
 
+
 var party: Array[Dictionary] = []
 var game_flags: Dictionary = {}
 var current_map: String = ""
@@ -45,6 +46,7 @@ func spawn_followers(parent: Node2D, start_pos: Vector2i) -> void:
 			continue
 		offset += 1
 		var member: PartyMember = _party_scene.instantiate()
+		member.z_index = 9
 		member.setup(party[i], offset)
 		member.teleport_to(start_pos + Vector2i(0, offset))
 		parent.add_child(member)

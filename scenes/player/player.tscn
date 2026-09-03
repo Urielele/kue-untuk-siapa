@@ -208,21 +208,22 @@ script = ExtResource("1_player")
 
 [node name="PopUp" type="AnimatedSprite2D" parent="." unique_id=1983551266]
 visible = false
-position = Vector2(-16, -3)
+position = Vector2(-16, -6)
 sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"exclamation"
 offset = Vector2(0, -13)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=479785261]
 position = Vector2(-16, 16)
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_player")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="DetectArea" type="Area2D" parent="." unique_id=1239643528]
 position = Vector2(-16, 16)
-collision_layer = 2
-collision_mask = 4
+collision_layer = 6
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" unique_id=594640652]
 shape = SubResource("RectangleShape2D_detect")

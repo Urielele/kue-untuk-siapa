@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://c4wcetjokokxt"]
 
-[ext_resource type="Script" path="res://scripts/events/event_trigger.gd" id="1_trigger"]
+[ext_resource type="Script" uid="uid://cuvxgg448nrlv" path="res://scripts/events/event_trigger.gd" id="1_trigger"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
 size = Vector2(32, 32)
 
-[node name="EventTrigger" type="Area2D"]
+[node name="EventTrigger" type="Area2D" unique_id=1169266932]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_trigger")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1664615412]
 shape = SubResource("RectangleShape2D_area")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816453730]
 modulate = Color(1, 1, 0, 0.3)

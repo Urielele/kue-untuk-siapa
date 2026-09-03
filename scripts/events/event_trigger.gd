@@ -39,12 +39,12 @@ func reactivate() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.get_parent().is_in_group("player"):
+	if area.get_parent() is Player and is_active:
 		player_inside = true
 		event_entered.emit(self)
 
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.get_parent().is_in_group("player"):
+	if area.get_parent() is Player:
 		player_inside = false
 		event_exited.emit(self)

@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(1, 0.5375, 0.5375, 1),
+&"color": Color(0.8235294, 1, 0.5254902, 1),
 &"custom_info": {
 "prefix": "",
 "sound_mood_default": "Sound",
@@ -10,10 +10,10 @@
 "Sound": {
 "mode": 0,
 "name": "Sound",
-"pitch_base": 1.1,
+"pitch_base": 1.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
-"sound_path": "res://assets/ui/sounds/female_beep.wav",
+"sound_path": "res://assets/ui/sounds/male_beep.wav",
 "volume_base": -5.0,
 "volume_variance": 1.0
 }
@@ -21,16 +21,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "Chia",
+&"default_portrait": "Bimo",
 &"description": "",
-&"display_name": "Chia",
+&"display_name": "Orang yang Tidak Dikenal",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 15),
 &"portraits": {
-"Chia": {
+"Bimo": {
 "export_overrides": {
-"image": "\"res://assets/sprites/player/chia sprite sqr.png\""
+"image": "\"res://assets/sprites/player/beemo unknown sprite sqr.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

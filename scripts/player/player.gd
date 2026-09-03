@@ -60,6 +60,10 @@ func _on_move_complete(new_grid_pos: Vector2i) -> void:
 		movement_history.resize(HISTORY_MAX)
 	is_moving = false
 
+	if EventManager.is_event_active:
+		play_idle_animation()
+		return
+
 	var input := _get_input()
 	if input != Vector2.ZERO:
 		facing_direction = _snap_to_axis(input)

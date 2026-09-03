@@ -23,7 +23,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if is_moving or _has_target or EventManager.is_event_active:
+	#if is_moving or _has_target or EventManager.is_event_active:
+	if is_moving or _has_target:
 		return
 	_follow_path()
 

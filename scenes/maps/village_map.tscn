@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bienpb28v5c0h" path="res://scripts/events/events_prologue.gd" id="4_f8h3x"]
 [ext_resource type="Texture2D" uid="uid://bhhpdkgcrhu6u" path="res://assets/tilesets/7_Villas_32x32.png" id="4_jl1gi"]
 [ext_resource type="Texture2D" uid="uid://ccq244x30ypkl" path="res://assets/tilesets/11_Camping_32x32.png" id="5_70ibm"]
-[ext_resource type="PackedScene" path="res://scenes/events/event_trigger.tscn" id="7_kroec"]
+[ext_resource type="PackedScene" uid="uid://c4wcetjokokxt" path="res://scenes/events/event_trigger.tscn" id="7_kroec"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nffah"]
 texture = ExtResource("3_qx6v1")
@@ -6822,6 +6822,7 @@ tile_map_data = PackedByteArray("AAAHAAUAAgALAJ4AAAAHAAYAAgALAJ8AAAAHAAcAAgALAKA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Events" type="Node2D" parent="." unique_id=1909717021]
+visible = false
 script = ExtResource("4_f8h3x")
 
 [node name="SpawnBeemo" parent="Events" unique_id=1733980921 instance=ExtResource("7_kroec")]
