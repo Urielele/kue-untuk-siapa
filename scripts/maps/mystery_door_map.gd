@@ -6,7 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	call_deferred("_setup_map")
-	await get_tree().process_frame
+	await get_tree().create_timer(0.75).timeout
 	camera_2d.camera_animation(Vector2(120.0, -325.0))
 
 

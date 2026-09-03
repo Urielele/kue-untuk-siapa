@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kue Untuk Siapa"
-run/main_scene="uid://detywqan5saci"
+run/main_scene="uid://b645en3qk8abq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EventManager="*res://scripts/autoload/event_manager.gd"
 GameManager="*res://scripts/autoload/game_manager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
+SceneTransition="*res://scripts/autoload/scene_transition.gd"
 
 [dialogic]
 
@@ -91,7 +92,8 @@ animations/leave_default="Fade Out Down"
 
 window/size/viewport_width=960
 window/size/viewport_height=720
-window/stretch/mode="viewport"
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
