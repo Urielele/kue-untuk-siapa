@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca2rlipen76jf" path="res://scripts/maps/mystery_door_map.gd" id="1_yrrju"]
 [ext_resource type="PackedScene" uid="uid://cghvuqucyyiaa" path="res://scenes/player/player.tscn" id="2_88n8b"]
+[ext_resource type="PackedScene" uid="uid://dfqswlhsmqytw" path="res://scenes/ui/hud.tscn" id="2_podfl"]
 [ext_resource type="Texture2D" uid="uid://b7km2wuybvfw6" path="res://assets/tilesets/1_Terrains_and_Fences_32x32.png" id="3_36wk2"]
 [ext_resource type="Script" uid="uid://du5v3ospi46uv" path="res://scenes/maps/camera.gd" id="3_x40ln"]
 [ext_resource type="Texture2D" uid="uid://bhhpdkgcrhu6u" path="res://assets/tilesets/7_Villas_32x32.png" id="4_yrrju"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bqw7kgvlcge0d" path="res://scenes/party/npc.tscn" id="8_36wk2"]
 [ext_resource type="PackedScene" uid="uid://c4wcetjokokxt" path="res://scenes/events/event_trigger.tscn" id="8_s12wn"]
 [ext_resource type="PackedScene" uid="uid://daku0tblguox6" path="res://scenes/events/npc_trigger.tscn" id="9_yrrju"]
+[ext_resource type="Texture2D" uid="uid://b6n856jg1ftt6" path="res://assets/sprites/popup/exclamation.png" id="11_ta2qr"]
+[ext_resource type="Texture2D" uid="uid://jdsvlsqgeki7" path="res://assets/sprites/popup/quest.png" id="12_3a5vq"]
+[ext_resource type="Texture2D" uid="uid://bv31eu5bf588k" path="res://assets/sprites/popup/question.png" id="13_quhtm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nffah"]
 texture = ExtResource("3_36wk2")
@@ -7623,6 +7627,83 @@ sources/1 = SubResource("TileSetAtlasSource_p45jq")
 sources/2 = SubResource("TileSetAtlasSource_mqng7")
 sources/3 = SubResource("TileSetAtlasSource_36wk2")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("11_ta2qr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("12_3a5vq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cv16"]
+atlas = ExtResource("13_quhtm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ty6gf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}],
+"loop": 1,
+"name": &"exclamation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}],
+"loop": 1,
+"name": &"quest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cv16")
+}],
+"loop": 0,
+"name": &"question",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_3a5vq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(497, -394)]
+}
+
+[sub_resource type="Animation" id="Animation_ta2qr"]
+resource_name = "pop_up"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(497, -405), Vector2(497, -395)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3a5vq"]
+_data = {
+&"RESET": SubResource("Animation_3a5vq"),
+&"pop_up": SubResource("Animation_ta2qr")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(96, 32)
 
@@ -7667,6 +7748,8 @@ size = Vector2(32, 32)
 
 [node name="MysteryDoor" type="Node2D" unique_id=1679094130]
 script = ExtResource("1_yrrju")
+
+[node name="HUD" parent="." unique_id=917542274 instance=ExtResource("2_podfl")]
 
 [node name="Player" parent="." unique_id=1713298777 instance=ExtResource("2_88n8b")]
 top_level = true
@@ -7729,6 +7812,18 @@ tile_set = SubResource("TileSet_bhunq")
 
 [node name="Events" type="Node2D" parent="." unique_id=1909717021]
 script = ExtResource("7_yrrju")
+
+[node name="PopUp" type="AnimatedSprite2D" parent="Events" unique_id=1543214443]
+z_index = 260
+position = Vector2(497, -394)
+scale = Vector2(1.28125, 1.28125)
+sprite_frames = SubResource("SpriteFrames_ty6gf")
+animation = &"exclamation"
+offset = Vector2(0, -13)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Events/PopUp" unique_id=1732312225]
+libraries/ = SubResource("AnimationLibrary_3a5vq")
+autoplay = &"pop_up"
 
 [node name="DoorTrigger" parent="Events" unique_id=1169266932 instance=ExtResource("8_s12wn")]
 position = Vector2(496, -272)

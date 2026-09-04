@@ -1,22 +1,44 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://dfqswlhsmqytw"]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://f1oudyxjnc6j" path="res://scripts/ui/hud.gd" id="1_hud"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=917542274]
 script = ExtResource("1_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=56210069]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -80
+offset_top = -80.0
 grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1937175236]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1594904153]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=977679075]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -210.0
+offset_top = 40.0
+offset_right = -10.0
+offset_bottom = 142.0
+grow_horizontal = 0
+
+[node name="Movement" type="Label" parent="VBoxContainer" unique_id=1200375704]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+text = "🡻 🡹 🡺 🡸 - MOVEMENT"
+horizontal_alignment = 2
+
+[node name="Interact" type="Label" parent="VBoxContainer" unique_id=1271200394]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+text = "Z - INTERACT"
+horizontal_alignment = 2

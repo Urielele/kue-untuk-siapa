@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bqyfp2ak3f6k5"]
 
 [ext_resource type="Script" uid="uid://diaqtstxoiwss" path="res://scripts/maps/map_base.gd" id="1_map"]
+[ext_resource type="PackedScene" uid="uid://dfqswlhsmqytw" path="res://scenes/ui/hud.tscn" id="2_e4ujk"]
 [ext_resource type="PackedScene" uid="uid://cghvuqucyyiaa" path="res://scenes/player/player.tscn" id="2_player"]
 [ext_resource type="Texture2D" uid="uid://b7km2wuybvfw6" path="res://assets/tilesets/1_Terrains_and_Fences_32x32.png" id="3_qx6v1"]
 [ext_resource type="Script" uid="uid://bienpb28v5c0h" path="res://scripts/events/events_prologue.gd" id="4_f8h3x"]
@@ -6774,6 +6775,9 @@ sources/0 = SubResource("TileSetAtlasSource_nffah")
 sources/1 = SubResource("TileSetAtlasSource_p45jq")
 sources/2 = SubResource("TileSetAtlasSource_mqng7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(32, 96)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn0t7"]
 size = Vector2(96, 32)
 
@@ -6782,6 +6786,8 @@ size = Vector2(96, 32)
 
 [node name="VillageMap" type="Node2D" unique_id=1679094130]
 script = ExtResource("1_map")
+
+[node name="HUD" parent="." unique_id=917542274 instance=ExtResource("2_e4ujk")]
 
 [node name="Player" parent="." unique_id=1713298777 instance=ExtResource("2_player")]
 top_level = true
@@ -6822,8 +6828,31 @@ tile_map_data = PackedByteArray("AAAHAAUAAgALAJ4AAAAHAAYAAgALAJ8AAAAHAAcAAgALAKA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Events" type="Node2D" parent="." unique_id=1909717021]
-visible = false
 script = ExtResource("4_f8h3x")
+
+[node name="WrongWay1" parent="Events" unique_id=1169266932 instance=ExtResource("7_kroec")]
+position = Vector2(-112, -48)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Events/WrongWay1" unique_id=506521762]
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="WrongWay2" parent="Events" unique_id=1227756692 instance=ExtResource("7_kroec")]
+position = Vector2(-112, 144)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Events/WrongWay2" unique_id=1471446777]
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="WrongWay3" parent="Events" unique_id=1987935030 instance=ExtResource("7_kroec")]
+position = Vector2(848, 144)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Events/WrongWay3" unique_id=1956898134]
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="WrongWay4" parent="Events" unique_id=1123319355 instance=ExtResource("7_kroec")]
+position = Vector2(848, -48)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Events/WrongWay4" unique_id=1979359155]
+shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="SpawnBeemo" parent="Events" unique_id=1733980921 instance=ExtResource("7_kroec")]
 position = Vector2(368, -208)
@@ -6838,5 +6867,9 @@ position = Vector2(367, -304)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Events/MysteryDoorEntrance" unique_id=189394586]
 shape = SubResource("RectangleShape2D_riqys")
 
+[connection signal="event_entered" from="Events/WrongWay1" to="Events" method="_on_wrong_way_event_entered"]
+[connection signal="event_entered" from="Events/WrongWay2" to="Events" method="_on_wrong_way_event_entered"]
+[connection signal="event_entered" from="Events/WrongWay3" to="Events" method="_on_wrong_way_event_entered"]
+[connection signal="event_entered" from="Events/WrongWay4" to="Events" method="_on_wrong_way_event_entered"]
 [connection signal="event_entered" from="Events/SpawnBeemo" to="Events" method="_on_spawn_beemo_event_entered"]
 [connection signal="event_entered" from="Events/MysteryDoorEntrance" to="Events" method="_on_mystery_door_entrance_event_entered"]

@@ -26,3 +26,10 @@ func _on_spawn_beemo_event_entered(trigger: EventTrigger) -> void:
 	await Dialogic.timeline_ended
 	player.z_index = 10
 	EventManager.unlock_event()
+
+
+func _on_wrong_way_event_entered(trigger: EventTrigger) -> void:
+	EventManager.lock_event()
+	Dialogic.start("wrong_way")
+	await Dialogic.timeline_ended
+	EventManager.unlock_event()
