@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://detywqan5saci"]
 
 [ext_resource type="Script" uid="uid://ca2rlipen76jf" path="res://scripts/maps/mystery_door_map.gd" id="1_yrrju"]
+[ext_resource type="AudioStream" uid="uid://47hc8i0yt6sg" path="res://assets/ui/soundtracks/033. Quiet Water (UNDERTALE Soundtrack) - Toby Fox.mp3" id="2_3a5vq"]
 [ext_resource type="PackedScene" uid="uid://cghvuqucyyiaa" path="res://scenes/player/player.tscn" id="2_88n8b"]
 [ext_resource type="PackedScene" uid="uid://dfqswlhsmqytw" path="res://scenes/ui/hud.tscn" id="2_podfl"]
 [ext_resource type="Texture2D" uid="uid://b7km2wuybvfw6" path="res://assets/tilesets/1_Terrains_and_Fences_32x32.png" id="3_36wk2"]
@@ -7748,6 +7749,8 @@ size = Vector2(32, 32)
 
 [node name="MysteryDoor" type="Node2D" unique_id=1679094130]
 script = ExtResource("1_yrrju")
+music_track = ExtResource("2_3a5vq")
+music_volume_db = -24.0
 
 [node name="HUD" parent="." unique_id=917542274 instance=ExtResource("2_podfl")]
 

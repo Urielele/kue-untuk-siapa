@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cobqwa347h1o5"
+path="res://.godot/imported/012. Home (UNDERTALE Soundtrack) - Toby Fox.mp3-c57e9a19794b59718a0211ac8da5d1d9.mp3str"
+
+[deps]
+
+source_file="res://assets/ui/soundtracks/012. Home (UNDERTALE Soundtrack) - Toby Fox.mp3"
+dest_files=["res://.godot/imported/012. Home (UNDERTALE Soundtrack) - Toby Fox.mp3-c57e9a19794b59718a0211ac8da5d1d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://47hc8i0yt6sg"
+path="res://.godot/imported/033. Quiet Water (UNDERTALE Soundtrack) - Toby Fox.mp3-b639dfdad82e9e65e876147471c708f9.mp3str"
+
+[deps]
+
+source_file="res://assets/ui/soundtracks/033. Quiet Water (UNDERTALE Soundtrack) - Toby Fox.mp3"
+dest_files=["res://.godot/imported/033. Quiet Water (UNDERTALE Soundtrack) - Toby Fox.mp3-b639dfdad82e9e65e876147471c708f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

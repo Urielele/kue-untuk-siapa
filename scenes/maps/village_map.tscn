@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://diaqtstxoiwss" path="res://scripts/maps/map_base.gd" id="1_map"]
 [ext_resource type="PackedScene" uid="uid://dfqswlhsmqytw" path="res://scenes/ui/hud.tscn" id="2_e4ujk"]
 [ext_resource type="PackedScene" uid="uid://cghvuqucyyiaa" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="AudioStream" uid="uid://qkttpg5lpk3a" path="res://assets/ui/soundtracks/022. Snowdin Town (UNDERTALE Soundtrack) - Toby Fox.mp3" id="2_vf3s5"]
 [ext_resource type="Texture2D" uid="uid://b7km2wuybvfw6" path="res://assets/tilesets/1_Terrains_and_Fences_32x32.png" id="3_qx6v1"]
 [ext_resource type="Script" uid="uid://bienpb28v5c0h" path="res://scripts/events/events_prologue.gd" id="4_f8h3x"]
 [ext_resource type="Texture2D" uid="uid://bhhpdkgcrhu6u" path="res://assets/tilesets/7_Villas_32x32.png" id="4_jl1gi"]
@@ -6786,6 +6787,8 @@ size = Vector2(96, 32)
 
 [node name="VillageMap" type="Node2D" unique_id=1679094130]
 script = ExtResource("1_map")
+music_track = ExtResource("2_vf3s5")
+music_volume_db = -24.0
 
 [node name="HUD" parent="." unique_id=917542274 instance=ExtResource("2_e4ujk")]
 

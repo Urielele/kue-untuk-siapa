@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Kue Untuk Siapa"
-run/main_scene="uid://oiirtrwhnmy0"
+run/main_scene="uid://b645en3qk8abq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+general/default_playback_type.web=0
 
 [autoload]
 
@@ -21,6 +25,7 @@ EventManager="*res://scripts/autoload/event_manager.gd"
 GameManager="*res://scripts/autoload/game_manager.gd"
 Dialogic="*uid://ds2q0uclmolvu"
 SceneTransition="*res://scripts/autoload/scene_transition.gd"
+MusicManager="*res://scripts/audio/music_manager.gd"
 
 [dialogic]
 

@@ -44,6 +44,6 @@ func _on_door_trigger_event_activated(trigger: EventTrigger) -> void:
 		Dialogic.start("mysterious_door")
 		await  Dialogic.timeline_ended
 	else:
-		pass
+		SceneTransition.change_scene("res://scenes/maps/ending.tscn")
 	
 	EventManager.unlock_event()
